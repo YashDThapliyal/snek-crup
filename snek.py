@@ -13,7 +13,21 @@ class SnakeGame:
         - Snake moving right
         - Snake in the center
         """
-        pass
+        self.width = width
+        self.height = height
+
+        self.direction = (1, 0)
+
+        center_x = width // 2
+        center_y = height // 2
+
+        self.snake = [
+            (center_x - 2, center_y),
+            (center_x - 1, center_y),
+            (center_x, center_y),
+        ]
+
+        self.alive = True
 
     def grid(self) -> list[list[str]]:
         """
