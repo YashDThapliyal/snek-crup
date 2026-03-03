@@ -41,7 +41,29 @@ class SnakeGame:
         Set the direction.
         Assume input will either be w, a, s, d, or None
         """
-        pass
+        if key_input is None:
+            return
+
+        new_direction = None
+
+        if key_input.lower() == "w":
+            new_direction = (0, -1)
+        elif key_input.lower() == "s":
+            new_direction = (0, 1)
+        elif key_input.lower() == "a":
+            new_direction = (-1, 0)
+        elif key_input.lower() == "d":
+            new_direction = (1, 0)
+
+        if new_direction is None:
+            return
+
+    # Prevent reversing direction
+    dx, dy = self.direction
+    ndx, ndy = new_direction
+
+    if (dx + ndx, dy + ndy) != (0, 0):
+        self.direction = new_direction
 
     def do_step(self) -> bool:
         """
